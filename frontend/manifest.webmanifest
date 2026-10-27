@@ -1,0 +1,22 @@
+{
+  "name": "DompetKu — Keuangan Pribadi",
+  "short_name": "DompetKu",
+  "description": "Catat uang masuk & keluar, hutang, tabungan, budget jajan, plus insight keuangan otomatis.",
+  "lang": "id",
+  "start_url": "./#/beranda",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f6f5",
+  "theme_color": "#0F766E",
+  "categories": ["finance", "productivity"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Transaksi", "url": "./#/transaksi", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Insight", "url": "./#/analisis", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}

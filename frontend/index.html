@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>DompetKu — Keuangan Pribadi</title>
+  <meta name="description" content="Catat uang masuk & keluar, hutang, tabungan, budget jajan, plus insight keuangan otomatis.">
+  <meta name="theme-color" content="#0F766E" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0B1513" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="DompetKu">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+
+  <!-- Font & ikon -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.49.0/dist/tabler-icons.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="bilah-offline" role="status">Kamu sedang offline — perubahan baru bisa disimpan saat online.</div>
+
+  <!-- Isi halaman dirender oleh js/app.js -->
+  <div id="app">
+    <main class="halaman"><div class="memuat"><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div></div></main>
+  </div>
+
+  <!-- Navigasi bawah -->
+  <nav class="nav-bawah" aria-label="Navigasi utama">
+    <a href="#/beranda"   data-rute="beranda"><i class="ti ti-home" aria-hidden="true"></i><span>Beranda</span></a>
+    <a href="#/transaksi" data-rute="transaksi"><i class="ti ti-receipt" aria-hidden="true"></i><span>Transaksi</span></a>
+    <button id="fab" class="fab" aria-label="Catat transaksi baru"><i class="ti ti-plus" aria-hidden="true"></i></button>
+    <a href="#/hutang"    data-rute="hutang"><i class="ti ti-file-invoice" aria-hidden="true"></i><span>Hutang</span></a>
+    <a href="#/tabungan"  data-rute="tabungan"><i class="ti ti-pig-money" aria-hidden="true"></i><span>Tabungan</span></a>
+  </nav>
+
+  <div id="toast-wadah" aria-live="polite"></div>
+
+  <noscript><p style="padding:2rem;text-align:center">Aktifkan JavaScript untuk memakai DompetKu.</p></noscript>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
