@@ -1,0 +1,45 @@
+# Upload folder frontend/ ke GitHub Pages setiap ada perubahan di branch main.
+# Aktifkan dulu: repo Settings > Pages > Source: "GitHub Actions"
+name: Deploy ke GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths: ['frontend/**', '.github/workflows/deploy.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cek config.js sudah diisi
+        run: |
+          if grep -q "XXXXXXXXXXXX\|GANTI_DENGAN" frontend/js/config.js; then
+            echo "::error::frontend/js/config.js belum diisi SUPABASE_URL & SUPABASE_KEY. Lihat README Langkah 3."
+            exit 1
+          fi
+          if grep -qi "service_role\|sb_secret_" frontend/js/config.js; then
+            echo "::error::Jangan taruh service_role / secret key di config.js! Pakai publishable/anon key."
+            exit 1
+          fi
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: frontend
+      - id: deployment
+        uses: actions/deploy-pages@v4
