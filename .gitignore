@@ -1,0 +1,16 @@
+# Jangan pernah commit file rahasia
+.env
+.env.*
+*.key
+secret*
+
+# Backup data keuangan pribadi (berisi data asli!)
+backup-dompetku-*.json
+*.csv
+
+# Sistem / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+node_modules/
